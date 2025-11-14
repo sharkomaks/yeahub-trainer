@@ -1,9 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { QuizPage } from '@/pages/QuizPage';
-
 import { Layout } from '../layout';
 
+/**
+ * React Router v7 browser router configuration
+ * Defines application route structure with lazy loading for code splitting
+ * Root route uses Layout component, child routes are lazy-loaded
+ */
 export const router = createBrowserRouter([
 	{
 		path: '/',
@@ -11,7 +14,7 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				path: '/quiz',
-				element: <QuizPage />
+				lazy: () => import('@/pages/QuizPage')
 			}
 		]
 	}

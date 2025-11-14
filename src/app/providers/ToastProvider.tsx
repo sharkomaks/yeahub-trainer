@@ -16,7 +16,7 @@ interface ToastProviderProps {
  * Provides global toast notifications for errors, success messages, etc.
  *
  * Configuration:
- * - Position: top-right
+ * - Position: top-center
  * - Duration: 4000ms (4 seconds)
  * - Styled with Tailwind CSS classes
  *
@@ -28,7 +28,7 @@ export function ToastProvider({ children }: ToastProviderProps) {
 		<>
 			{children}
 			<Toaster
-				position='top-right'
+				position='top-center'
 				toastOptions={{
 					duration: 4000,
 					style: {
