@@ -17,7 +17,7 @@ export function Button({ children, className, variant = 'primary', ...props }: B
 	};
 
 	return (
-		<button className={cn(baseStyles, variantStyles[variant], className, '')} {...props}>
+		<button className={cn(baseStyles, variantStyles[variant], className)} {...props}>
 			{children}
 		</button>
 	);

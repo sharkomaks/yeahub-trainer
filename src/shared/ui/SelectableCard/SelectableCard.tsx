@@ -25,8 +25,9 @@ export function SelectableCard({
 			className={cn(
 				'flex items-center gap-2 rounded-xl border-2 px-4 py-2.5 text-left text-sm font-medium transition-all duration-200',
 				{
-					'border-primary bg-primary/5 cursor-pointer text-gray-900': isSelected,
-					'cursor-pointer border-gray-300 bg-white text-gray-700 hover:border-gray-400':
+					'hover:bg-primary border-primary bg-primary/7 cursor-pointer text-gray-900 hover:text-white':
+						isSelected,
+					'hover:bg-primary hover:border-primary cursor-pointer border-gray-300 bg-white text-gray-700 hover:text-white':
 						!isSelected && !disabled,
 					'cursor-not-allowed border-gray-200 bg-gray-50 text-gray-400 opacity-60': disabled
 				},

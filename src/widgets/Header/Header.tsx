@@ -12,7 +12,7 @@ export function Header() {
 		<header>
 			<Container>
 				<div className='flex h-16 items-center justify-between'>
-					<div className='flex items-center gap-6 md:gap-12'>
+					<div className='flex items-center gap-6 sm:gap-12'>
 						<Logo />
 						<NavLink
 							to='/quiz'
