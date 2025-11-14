@@ -1,4 +1,3 @@
-import type { Skill, Specialization } from '@/shared/types';
 import {
 	DifficultySelector,
 	ModeSelector,
@@ -6,6 +5,8 @@ import {
 	SkillSelector,
 	SpecializationSelector
 } from '@/features/quiz-setup/ui';
+
+import type { Skill, Specialization } from '@/shared/types';
 
 interface QuizSetupFormProps {
 	specializationId: number;

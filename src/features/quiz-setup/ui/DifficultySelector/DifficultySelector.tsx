@@ -8,7 +8,10 @@ interface DifficultySelectorProps {
 
 const DIFFICULTY_RANGES = ['1-3', '4-6', '7-8', '9-10'];
 
-export function DifficultySelector({ disabled = true, tooltipContent = 'Доступно для участников' }: DifficultySelectorProps) {
+export function DifficultySelector({
+	disabled = true,
+	tooltipContent = 'Доступно для участников'
+}: DifficultySelectorProps) {
 	return (
 		<div>
 			<h2 className='mb-2 text-sm text-gray-500'>Сложность вопросов</h2>

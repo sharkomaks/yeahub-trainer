@@ -26,7 +26,7 @@ export function Counter({ value, onChange, min = 1, max = 100, className }: Coun
 			<button
 				onClick={handleDecrement}
 				disabled={value <= min}
-				className='cursor-pointer text-primary hover:text-primary-hover text-2xl font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-30'
+				className='text-primary hover:text-primary-hover cursor-pointer text-2xl font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-30'
 				aria-label='Decrease count'
 			>
 				−
@@ -35,7 +35,7 @@ export function Counter({ value, onChange, min = 1, max = 100, className }: Coun
 			<button
 				onClick={handleIncrement}
 				disabled={value >= max}
-				className='cursor-pointer text-primary hover:text-primary-hover text-2xl font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-30'
+				className='text-primary hover:text-primary-hover cursor-pointer text-2xl font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-30'
 				aria-label='Increase count'
 			>
 				+

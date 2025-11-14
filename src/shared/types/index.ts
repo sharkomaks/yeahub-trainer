@@ -8,11 +8,4 @@ export type { Specialization, SpecializationsResponse } from './specializations.
 export type { Skill, SkillsResponse } from './skills.types';
 
 // Quiz
-export type {
-	Question,
-	QuizAnswer,
-	QuizAnswersInfo,
-	QuizAuthor,
-	QuizParams,
-	QuizResponse
-} from './quiz.types';
+export type { Question, QuizAnswer, QuizAnswersInfo, QuizAuthor, QuizParams, QuizResponse } from './quiz.types';

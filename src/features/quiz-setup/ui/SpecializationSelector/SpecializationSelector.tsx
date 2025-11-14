@@ -36,7 +36,11 @@ export function SpecializationSelector({
 					</>
 				) : (
 					displayedSpecializations.map(spec => (
-						<SelectableCard key={spec.id} isSelected={selectedId === spec.id} onClick={() => onSelect(spec.id)}>
+						<SelectableCard
+							key={spec.id}
+							isSelected={selectedId === spec.id}
+							onClick={() => onSelect(spec.id)}
+						>
 							{spec.title}
 						</SelectableCard>
 					))

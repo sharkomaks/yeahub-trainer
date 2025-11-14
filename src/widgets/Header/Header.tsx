@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 
-import { Logo } from '@/shared/ui/Logo';
 import { Container } from '@/shared/ui/Container';
+import { Logo } from '@/shared/ui/Logo';
 
 import { DesktopAuthButtons } from './ui/DesktopAuthButtons';
 import { MobileMenu } from './ui/MobileMenu';

@@ -1,15 +1,15 @@
 @import 'tailwindcss';
 
 @theme {
-    --color-primary: #6A0BFF;
-    --color-primary-hover: #5509CC;
-    --color-footer: #18003E;
-    --color-background: #F4F4F4;
-    --font-sans: 'Manrope';
+	--color-primary: #6a0bff;
+	--color-primary-hover: #5509cc;
+	--color-footer: #18003e;
+	--color-background: #f4f4f4;
+	--font-sans: 'Manrope';
 }
 
 @layer base {
-    body {
-        font-family: var(--font-sans), sans-serif;
-    }
+	body {
+		font-family: var(--font-sans), sans-serif;
+	}
 }

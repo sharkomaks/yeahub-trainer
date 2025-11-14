@@ -1,5 +1,6 @@
-import type { PaginatedResponse } from '@/shared/types/api';
 import type { Specialization } from '@/entities/specialization';
+
+import type { PaginatedResponse } from '@/shared/types/api';
 
 /**
  * Навык (технология, инструмент)

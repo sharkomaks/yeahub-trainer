@@ -13,7 +13,13 @@ interface SkillSelectorProps {
 	initialDisplayCount?: number;
 }
 
-export function SkillSelector({ selectedIds, onToggle, skills, isLoading, initialDisplayCount = 5 }: SkillSelectorProps) {
+export function SkillSelector({
+	selectedIds,
+	onToggle,
+	skills,
+	isLoading,
+	initialDisplayCount = 5
+}: SkillSelectorProps) {
 	const [isExpanded, setIsExpanded] = useState(false);
 
 	const displayedSkills = isExpanded ? skills : skills.slice(0, initialDisplayCount);
@@ -38,7 +44,11 @@ export function SkillSelector({ selectedIds, onToggle, skills, isLoading, initia
 							onClick={() => onToggle(skill.id)}
 							icon={
 								skill.imageSrc ? (
-									<img src={skill.imageSrc} alt={skill.title} className='size-5 rounded object-cover' />
+									<img
+										src={skill.imageSrc}
+										alt={skill.title}
+										className='size-5 rounded object-cover'
+									/>
 								) : undefined
 							}
 						>

@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import type { ComponentProps } from 'react';
 
-
 type SkeletonCardProps = ComponentProps<'div'>;
 
 export function SkeletonCard({ className, ...props }: SkeletonCardProps) {
