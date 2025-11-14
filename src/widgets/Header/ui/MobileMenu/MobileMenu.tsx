@@ -27,7 +27,7 @@ export function MobileMenu() {
 		<div className='relative md:hidden' ref={menuRef}>
 			<button
 				onClick={() => setIsMenuOpen(!isMenuOpen)}
-				className='flex size-10 items-center justify-center rounded-lg text-gray-900 transition-colors hover:bg-gray-100'
+				className='flex size-10 items-center justify-center rounded-lg text-gray-900 transition-colors hover:bg-gray-100 cursor-pointer'
 				aria-label='Открыть меню'
 			>
 				<IoIosMenu className='size-6' />
@@ -38,14 +38,14 @@ export function MobileMenu() {
 				<div className='absolute right-0 top-12 z-50 w-56 rounded-lg border border-gray-200 bg-white shadow-lg'>
 					<button
 						onClick={() => setIsMenuOpen(false)}
-						className='flex w-full items-center gap-3 border-b border-gray-100 px-4 py-3 text-left transition-colors hover:bg-gray-50'
+						className='flex w-full items-center gap-3 border-b border-gray-100 px-4 py-3 text-left transition-colors hover:bg-gray-50 cursor-pointer'
 					>
 						<IoPersonOutline className='size-5 text-gray-700' />
 						<span className='text-gray-900'>Вход</span>
 					</button>
 					<button
 						onClick={() => setIsMenuOpen(false)}
-						className='flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-gray-50'
+						className='flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-gray-50 cursor-pointer'
 					>
 						<IoPersonAddOutline className='size-5 text-gray-700' />
 						<span className='text-gray-900'>Регистрация</span>
