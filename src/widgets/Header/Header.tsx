@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import cn from 'classnames';
+import { Link, NavLink } from 'react-router-dom';
 
 import { Button } from '@/shared/ui/Button';
 import { Container } from '@/shared/ui/Container';
@@ -15,6 +16,17 @@ export function Header() {
 						<img src='/logo.svg' alt='YeaHub' className='size-8 rounded-full' />
 						<span>Yeahub</span>
 					</Link>
+					<NavLink
+						to='/quiz'
+						className={({ isActive }) =>
+							cn(
+								'hover:text-primary rounded-xl px-3 py-1.5 transition-colors hover:bg-gray-100',
+								isActive && 'bg-gray-100'
+							)
+						}
+					>
+						Тренажёр
+					</NavLink>
 					<div className='flex items-center gap-6'>
 						<Button variant='outline' className={'text-sm'}>
 							Вход
