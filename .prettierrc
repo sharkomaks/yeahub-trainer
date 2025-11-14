@@ -1,29 +1,26 @@
 {
-  "trailingComma": "none",
-  "tabWidth": 4,
-  "useTabs": true,
-  "semi": true,
-  "jsxSingleQuote": true,
-  "singleQuote": true,
-  "printWidth": 120,
-  "arrowParens": "avoid",
-  "importOrder": [
-    "<THIRD_PARTY_MODULES>",
-    "^@/app/(.*)$",
-    "^@/processes/(.*)$",
-    "^@/pages/(.*)$",
-    "^@/widgets/(.*)$",
-    "^@/features/(.*)$",
-    "^@/entities/(.*)$",
-    "^@/shared/(.*)$",
-    "^../(.*)$",
-    "^./(.*)$",
-    "(.scss|.css)$"
-  ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss"
-  ]
+	"trailingComma": "none",
+	"tabWidth": 4,
+	"useTabs": true,
+	"semi": true,
+	"jsxSingleQuote": true,
+	"singleQuote": true,
+	"printWidth": 120,
+	"arrowParens": "avoid",
+	"importOrder": [
+		"<THIRD_PARTY_MODULES>",
+		"^@/app/(.*)$",
+		"^@/processes/(.*)$",
+		"^@/pages/(.*)$",
+		"^@/widgets/(.*)$",
+		"^@/features/(.*)$",
+		"^@/entities/(.*)$",
+		"^@/shared/(.*)$",
+		"^../(.*)$",
+		"^./(.*)$",
+		"(.scss|.css)$"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true,
+	"plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"]
 }
