@@ -22,7 +22,7 @@ export function Counter({ value, onChange, min = 1, max = 100, className }: Coun
 	};
 
 	return (
-		<div className={cn('flex items-center gap-3 rounded-xl border border-gray-300 px-3 py-2', className)}>
+		<div className={cn('inline-flex items-center gap-3 rounded-xl border border-gray-300 px-3 py-2', className)}>
 			<button
 				onClick={handleDecrement}
 				disabled={value <= min}
