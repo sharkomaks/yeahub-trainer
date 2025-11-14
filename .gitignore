@@ -10,6 +10,7 @@ CLAUDE.md
 
 node_modules
 dist
+docs
 dist-ssr
 *.local
 .env
