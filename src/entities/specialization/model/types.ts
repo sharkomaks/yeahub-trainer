@@ -1,8 +1,5 @@
 import type { PaginatedResponse } from '@/shared/types/api';
 
-/**
- * Специализация (направление обучения)
- */
 export interface Specialization {
 	id: number;
 	title: string;
@@ -12,9 +9,6 @@ export interface Specialization {
 	updatedAt: string;
 }
 
-/**
- * Ответ API со списком специализаций
- */
 export interface SpecializationsResponse extends PaginatedResponse {
 	data: Specialization[];
 }

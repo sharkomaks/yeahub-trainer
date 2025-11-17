@@ -1,41 +1,26 @@
 import type { Skill } from '@/entities/skill';
 import type { Specialization } from '@/entities/specialization';
 
-/**
- * Параметры запроса для создания mock квиза
- */
 export interface QuizParams {
 	specialization: number;
 	skills: number[];
 	limit: number;
 }
 
-/**
- * Автор вопроса
- */
 export interface QuizAuthor {
 	id: string;
 	username: string;
 }
 
-/**
- * Ответ пользователя в квизе
- */
 export interface QuizAnswer {
 	questionId: number;
 	questionTitle: string;
 }
 
-/**
- * Информация об ответах в квизе
- */
 export interface QuizAnswersInfo {
 	answers: QuizAnswer[];
 }
 
-/**
- * Вопрос в квизе
- */
 export interface Question {
 	id: number;
 	title: string;
@@ -58,9 +43,6 @@ export interface Question {
 	questionSkills: Skill[];
 }
 
-/**
- * Ответ API с квизом
- */
 export interface QuizResponse {
 	fullCount: number;
 	skills: string[];

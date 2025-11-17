@@ -3,10 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/shared/ui/Button';
 import { Container } from '@/shared/ui/Container';
 
-/**
- * WelcomePage - приветственная страница приложения
- * Отображается на главной странице (/) и предлагает пользователю перейти к тренажеру
- */
 export function WelcomePage() {
 	const navigate = useNavigate();
 

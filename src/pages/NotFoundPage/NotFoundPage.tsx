@@ -3,10 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/shared/ui/Button';
 import { Container } from '@/shared/ui/Container';
 
-/**
- * NotFoundPage - страница 404
- * Отображается при попытке доступа к несуществующему маршруту
- */
 export function NotFoundPage() {
 	const navigate = useNavigate();
 

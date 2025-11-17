@@ -7,29 +7,13 @@ import { useQuizData, useQuizNavigation, useQuizSetupState, useSkillSelection } 
 import { Button } from '@/shared/ui/Button';
 import { Container } from '@/shared/ui/Container';
 
-/**
- * Quiz setup page component
- * Allows users to configure and start a quiz by selecting:
- * - Specialization (required)
- * - Skills (required, multiple selection)
- * - Question count (1-50)
- *
- * Uses URL query parameters for state persistence
- * Validates selections before allowing quiz start
- *
- * @returns Quiz configuration page with form and start button
- */
 function QuizPage() {
-	// Query state management
 	const { specializationId, setSpecializationId, skillIds, setSkillIds, count, setCount } = useQuizSetupState();
 
-	// Fetch data
 	const { specializations, skills, isLoadingSpecializations, isLoadingSkills } = useQuizData(specializationId);
 
-	// Skill selection logic
 	const { toggleSkill } = useSkillSelection(skillIds, setSkillIds);
 
-	// Navigation logic
 	const { handleStart, isValid } = useQuizNavigation({ specializationId, skillIds, count });
 
 	return (

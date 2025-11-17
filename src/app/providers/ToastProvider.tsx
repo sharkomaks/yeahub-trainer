@@ -1,28 +1,11 @@
 import type { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 
-/**
- * Props for ToastProvider component
- */
 interface ToastProviderProps {
 	/** Child components to render */
 	children: ReactNode;
 }
 
-/**
- * Toast notification provider
- *
- * Wraps the application with react-hot-toast's Toaster component.
- * Provides global toast notifications for errors, success messages, etc.
- *
- * Configuration:
- * - Position: top-center
- * - Duration: 4000ms (4 seconds)
- * - Styled with Tailwind CSS classes
- *
- * @param props - Provider props with children
- * @returns Children wrapped with toast notification system
- */
 export function ToastProvider({ children }: ToastProviderProps) {
 	return (
 		<>

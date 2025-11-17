@@ -4,19 +4,6 @@ import { IoPersonAddOutline, IoPersonOutline } from 'react-icons/io5';
 
 import { useClickOutside } from '@/shared/lib/hooks';
 
-/**
- * Mobile menu component with hamburger button and dropdown
- *
- * Features:
- * - Hamburger button with menu icon
- * - Dropdown menu with "Вход" and "Регистрация" options
- * - Closes when clicking outside
- * - Closes when clicking menu item
- *
- * Visible only on screens <768px
- *
- * @returns Mobile menu dropdown with auth options
- */
 export function MobileMenu() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const menuRef = useRef<HTMLDivElement>(null);

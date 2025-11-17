@@ -6,11 +6,6 @@ interface UseQuizNavigationParams {
 	count: number;
 }
 
-/**
- * Custom hook for handling quiz start navigation
- * @param params - Quiz parameters (specialization, skills, count)
- * @returns Navigation handler and validation state
- */
 export function useQuizNavigation({ specializationId, skillIds, count }: UseQuizNavigationParams) {
 	const navigate = useNavigate();
 

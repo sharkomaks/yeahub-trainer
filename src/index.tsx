@@ -1,7 +1,3 @@
-/**
- * Application entry point
- * Renders the App component in React StrictMode for highlighting potential problems
- */
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
