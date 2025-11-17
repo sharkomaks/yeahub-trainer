@@ -20,6 +20,10 @@ export const router = createBrowserRouter([
 				lazy: () => import('@/pages/QuizNewPage')
 			},
 			{
+				path: '/quiz/result',
+				lazy: () => import('@/pages/QuizResultPage')
+			},
+			{
 				path: '*',
 				lazy: () => import('@/pages/NotFoundPage')
 			}

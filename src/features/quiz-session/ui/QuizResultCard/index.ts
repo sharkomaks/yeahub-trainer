@@ -1,0 +1,1 @@
+export { QuizResultCard } from './QuizResultCard';
