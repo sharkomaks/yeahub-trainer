@@ -28,6 +28,7 @@ export function QuizNewPage() {
 		handlePrev,
 		handleNext,
 		handleAnswer,
+		handleSubmitResults,
 		handleFinish,
 		toggleAnswer
 	} = session;
@@ -51,6 +52,7 @@ export function QuizNewPage() {
 
 				<QuizActions
 					onNext={handleNext}
+					onSubmit={handleSubmitResults}
 					onFinish={handleFinish}
 					hasAnswer={hasAnswer}
 					isLastQuestion={isLastQuestion}

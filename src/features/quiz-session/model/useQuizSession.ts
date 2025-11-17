@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { clearQuizData, selectQuestions } from '@/entities/quiz/model/quizSlice';
+import { clearQuizData, selectQuestions, setQuizResults } from '@/entities/quiz/model/quizSlice';
 import type { Question } from '@/entities/quiz/model/types';
 
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks';
@@ -55,6 +55,11 @@ export function useQuizSession() {
 		}));
 	};
 
+	const handleSubmitResults = () => {
+		dispatch(setQuizResults(userAnswers));
+		navigate('/quiz/result');
+	};
+
 	const handleFinish = () => {
 		dispatch(clearQuizData());
 		navigate('/');
@@ -77,6 +82,7 @@ export function useQuizSession() {
 		handlePrev,
 		handleNext,
 		handleAnswer,
+		handleSubmitResults,
 		handleFinish,
 		toggleAnswer
 	};
