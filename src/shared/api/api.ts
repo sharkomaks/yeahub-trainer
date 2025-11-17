@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 
 const baseQueryWithRetry = retry(
 	fetchBaseQuery({
-		baseUrl: 'api',
+		baseUrl: '/api',
 		timeout: 10000
 	}),
 	{ maxRetries: 2 }
