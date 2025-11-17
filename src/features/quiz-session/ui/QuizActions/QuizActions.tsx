@@ -9,16 +9,16 @@ interface QuizActionsProps {
 
 export function QuizActions({ onNext, onFinish, hasAnswer, isLastQuestion }: QuizActionsProps) {
 	return (
-		<div className="flex flex-col justify-between gap-4 sm:flex-row">
+		<div className='flex flex-col justify-between gap-4 sm:flex-row'>
 			<Button
 				onClick={!isLastQuestion ? onNext : undefined}
 				disabled={!hasAnswer}
-				className="order-2 px-8 py-2 text-base sm:order-1"
+				className='order-2 px-8 py-2 text-base sm:order-1'
 			>
 				{!isLastQuestion ? 'Далее' : 'Проверить'}
 			</Button>
 
-			<Button onClick={onFinish} variant="destructive" className="order-2 px-8 py-2 text-base sm:order-1">
+			<Button onClick={onFinish} variant='destructive' className='order-2 px-8 py-2 text-base sm:order-1'>
 				Завершить
 			</Button>
 		</div>

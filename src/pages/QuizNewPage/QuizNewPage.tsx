@@ -33,10 +33,10 @@ export function QuizNewPage() {
 	} = session;
 
 	return (
-		<Container className="py-7">
+		<Container className='py-7'>
 			<QuizProgress currentIndex={currentIndex} totalQuestions={totalQuestions} />
 
-			<div className="rounded-2xl bg-white p-4 sm:p-6 md:p-8">
+			<div className='rounded-2xl bg-white p-4 sm:p-6 md:p-8'>
 				<QuizNavigation
 					onPrev={handlePrev}
 					onNext={handleNext}
