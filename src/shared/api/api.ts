@@ -1,25 +1,8 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 
-const getBaseUrl = (): string => {
-	const isDevelopment = import.meta.env.DEV;
-
-	if (isDevelopment) {
-		return '/api';
-	}
-
-	const serverUrl = import.meta.env.VITE_SERVER_URL;
-
-	if (!serverUrl) {
-		console.error('VITE_SERVER_URL is not defined in environment variables');
-		return '/api';
-	}
-
-	return serverUrl;
-};
-
 const baseQueryWithRetry = retry(
 	fetchBaseQuery({
-		baseUrl: getBaseUrl(),
+		baseUrl: 'api',
 		timeout: 10000
 	}),
 	{ maxRetries: 2 }
