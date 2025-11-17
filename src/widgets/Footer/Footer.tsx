@@ -20,7 +20,7 @@ export function Footer() {
 					</div>
 					<div className='flex items-center justify-between border-t border-white/70 pt-4 text-sm text-gray-400'>
 						<span>&copy; {year} YeaHub</span>
-						<div className='flex items-center gap-4'>
+						<div className='flex flex-wrap items-center justify-end gap-4 gap-y-1'>
 							<Link to='/' className='flex items-center gap-2 transition-colors hover:text-white'>
 								Документы
 							</Link>

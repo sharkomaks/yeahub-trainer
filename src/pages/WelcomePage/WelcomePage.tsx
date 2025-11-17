@@ -11,12 +11,14 @@ export function WelcomePage() {
 	};
 
 	return (
-		<Container className="flex min-h-[calc(100vh-200px)] flex-col items-center justify-center text-center">
-			<h1 className="mb-6 text-7xl font-bold text-primary">Добро пожаловать</h1>
-			<p className="mb-12 max-w-2xl text-xl text-gray-600">
+		<Container className="flex min-h-[calc(100vh-200px)] flex-col items-center justify-center px-4 text-center sm:px-6 md:px-8">
+			<h1 className="mb-6 text-4xl font-bold text-primary sm:text-5xl md:text-6xl lg:text-7xl">
+				Добро пожаловать
+			</h1>
+			<p className="mb-8 max-w-2xl text-base text-gray-600 sm:mb-10 sm:text-lg md:mb-12 md:text-xl">
 				Откройте для себя мир знаний и проверьте свои навыки с нашей коллекцией вопросов
 			</p>
-			<Button onClick={handleGoToQuiz} className="px-8 py-4 text-lg">
+			<Button onClick={handleGoToQuiz} className="px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg">
 				Перейти к тренажеру →
 			</Button>
 		</Container>
