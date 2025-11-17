@@ -16,7 +16,7 @@ export function QuizQuestion({ question, showAnswer, onToggleAnswer }: QuizQuest
 				<span>{question.title}</span>
 			</h2>
 
-			<button onClick={onToggleAnswer} className='text-primary mb-4 text-sm hover:underline sm:text-base'>
+			<button onClick={onToggleAnswer} className='text-primary mb-4 cursor-pointer text-sm sm:text-base'>
 				{showAnswer ? 'Скрыть ответ' : 'Посмотреть ответ'}
 			</button>
 
