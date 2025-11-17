@@ -1,3 +1,4 @@
+import { FaArrowRightLong } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from '@/shared/ui/Button';
@@ -18,8 +19,9 @@ export function WelcomePage() {
 			<p className='mb-8 max-w-2xl text-base text-gray-600 sm:mb-10 sm:text-lg md:mb-12 md:text-xl'>
 				Откройте для себя мир знаний и проверьте свои навыки с нашей коллекцией вопросов
 			</p>
-			<Button onClick={handleGoToQuiz} className='px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg'>
-				Перейти к тренажеру →
+			<Button onClick={handleGoToQuiz} className='group px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg'>
+				<span>Перейти к тренажеру</span>
+				<FaArrowRightLong className={'group-hover:translate-x-2.5'} />
 			</Button>
 		</Container>
 	);

@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 
 interface ToastProviderProps {
-	/** Child components to render */
 	children: ReactNode;
 }
 
@@ -13,7 +12,7 @@ export function ToastProvider({ children }: ToastProviderProps) {
 			<Toaster
 				position='top-center'
 				toastOptions={{
-					duration: 4000,
+					duration: 3000,
 					style: {
 						background: '#fff',
 						color: '#1f2937',
