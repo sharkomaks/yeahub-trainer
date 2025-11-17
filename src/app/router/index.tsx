@@ -13,8 +13,16 @@ export const router = createBrowserRouter([
 		element: <Layout />,
 		children: [
 			{
+				index: true,
+				lazy: () => import('@/pages/WelcomePage')
+			},
+			{
 				path: '/quiz',
 				lazy: () => import('@/pages/QuizPage')
+			},
+			{
+				path: '*',
+				lazy: () => import('@/pages/NotFoundPage')
 			}
 		]
 	}
