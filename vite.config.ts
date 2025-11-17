@@ -1,12 +1,10 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => {
-	const env = loadEnv(mode, process.cwd(), '');
-
+export default defineConfig(() => {
 	return {
 		plugins: [
 			react({
@@ -20,7 +18,7 @@ export default defineConfig(({ mode }) => {
 			port: 3000,
 			proxy: {
 				'/api': {
-					target: env.VITE_SERVER_URL,
+					target: 'https://api.yeatwork.ru',
 					changeOrigin: true,
 					rewrite: path => path.replace(/^\/api/, ''),
 					secure: true
