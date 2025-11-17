@@ -1,5 +1,7 @@
 export default async function handler(req, res) {
-	const url = `https://api.yeatwork.ru/${req.url}`;
+	const baseUrl = process.env.VITE_SERVER_URL;
+	const path = req.url.replace('/api/', '');
+	const url = `${baseUrl}/${path}`;
 
 	try {
 		const response = await fetch(url);
