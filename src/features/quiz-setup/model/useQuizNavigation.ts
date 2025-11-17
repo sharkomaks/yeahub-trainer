@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 import { useGetNewMockQuizQuery } from '@/entities/quiz/api/quizApi';
-import { setQuizData } from '@/entities/quiz/model/quizSlice';
+import { clearQuizData, setQuizData } from '@/entities/quiz/model/quizSlice';
 
-import { useAppDispatch } from '@/shared/lib/hooks';
+import { useApiError, useAppDispatch } from '@/shared/lib/hooks';
+import { ApiErrorType, getErrorMessage } from '@/shared/types/errors';
 
 interface UseQuizNavigationParams {
 	specializationId: number;
@@ -18,7 +19,7 @@ export function useQuizNavigation({ specializationId, skillIds, count }: UseQuiz
 
 	const isValid = !!specializationId && skillIds.length > 0;
 
-	const { data, isLoading } = useGetNewMockQuizQuery(
+	const { data, isLoading, isError } = useGetNewMockQuizQuery(
 		{
 			specialization: specializationId,
 			skills: skillIds,
@@ -29,8 +30,11 @@ export function useQuizNavigation({ specializationId, skillIds, count }: UseQuiz
 		}
 	);
 
+	useApiError(isError, getErrorMessage(ApiErrorType.QUIZ));
+
 	const handleStart = () => {
 		if (data) {
+			dispatch(clearQuizData());
 			dispatch(setQuizData(data));
 			toast.success('Успешно! Новое собеседование создано');
 			navigate(`/quiz/new`);
@@ -39,7 +43,7 @@ export function useQuizNavigation({ specializationId, skillIds, count }: UseQuiz
 
 	return {
 		handleStart,
-		isValid: isValid && !!data && !isLoading,
+		isValid: isValid && !!data && !isLoading && !isError,
 		isLoading
 	};
 }
