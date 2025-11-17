@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-import type { Skill } from '@/shared/types';
+import type { Skill } from '@/entities/skill';
+
 import { ExpandableSection } from '@/shared/ui/ExpandableSection';
 import { SelectableCard } from '@/shared/ui/SelectableCard';
 import { SkeletonCard } from '@/shared/ui/SkeletonCard';

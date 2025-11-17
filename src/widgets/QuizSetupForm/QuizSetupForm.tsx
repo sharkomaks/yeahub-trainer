@@ -6,7 +6,8 @@ import {
 	SpecializationSelector
 } from '@/features/quiz-setup/ui';
 
-import type { Skill, Specialization } from '@/shared/types';
+import type { Skill } from '@/entities/skill';
+import type { Specialization } from '@/entities/specialization';
 
 interface QuizSetupFormProps {
 	specializationId: number;
