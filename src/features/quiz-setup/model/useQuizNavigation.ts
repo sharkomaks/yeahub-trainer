@@ -26,7 +26,7 @@ export function useQuizNavigation({ specializationId, skillIds, count }: UseQuiz
 			params.set('skills', skillIds.join(','));
 		}
 
-		navigate(`/test?${params.toString()}`);
+		navigate(`/quiz/new`);
 	};
 
 	return {
