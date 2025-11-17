@@ -1,10 +1,16 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
+
+const baseQueryWithRetry = retry(
+	fetchBaseQuery({
+		baseUrl: 'api',
+		timeout: 10000
+	}),
+	{ maxRetries: 2 }
+);
 
 export const baseApi = createApi({
 	reducerPath: 'api',
-	baseQuery: fetchBaseQuery({
-		baseUrl: 'api'
-	}),
+	baseQuery: baseQueryWithRetry,
 	tagTypes: ['Specializations', 'Skills', 'NewQuiz'],
 	endpoints: () => ({})
 });
