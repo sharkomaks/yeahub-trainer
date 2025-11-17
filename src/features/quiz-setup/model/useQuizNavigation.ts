@@ -1,5 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
+import { useGetNewMockQuizQuery } from '@/entities/quiz/api/quizApi';
+import { setQuizData } from '@/entities/quiz/model/quizSlice';
+
+import { useAppDispatch } from '@/shared/lib/hooks';
+
 interface UseQuizNavigationParams {
 	specializationId: number;
 	skillIds: number[];
@@ -8,24 +13,31 @@ interface UseQuizNavigationParams {
 
 export function useQuizNavigation({ specializationId, skillIds, count }: UseQuizNavigationParams) {
 	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
 
 	const isValid = !!specializationId && skillIds.length > 0;
 
-	const handleStart = () => {
-		const params = new URLSearchParams({
-			specialization: specializationId.toString(),
-			count: count.toString()
-		});
-
-		if (skillIds.length > 0) {
-			params.set('skills', skillIds.join(','));
+	const { data, isLoading } = useGetNewMockQuizQuery(
+		{
+			specialization: specializationId,
+			skills: skillIds,
+			limit: count
+		},
+		{
+			skip: !isValid
 		}
+	);
 
-		navigate(`/quiz/new`);
+	const handleStart = () => {
+		if (data) {
+			dispatch(setQuizData(data));
+			navigate(`/quiz/new`);
+		}
 	};
 
 	return {
 		handleStart,
-		isValid
+		isValid: isValid && !!data && !isLoading,
+		isLoading
 	};
 }
