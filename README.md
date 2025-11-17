@@ -1,75 +1,212 @@
-# React + TypeScript + Vite
+# YeaHub Trainer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Платформа для подготовки к собеседованиям по различным IT-специализациям. Проект построен на современном стеке технологий с использованием React 19, TypeScript и Feature-Sliced Design архитектуры.
 
-Currently, two official plugins are available:
+## 🚀 Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📚 Выбор специализации и навыков для тестирования
+- ❓ Интерактивные вопросы с возможностью посмотреть ответ
+- ✅ Отслеживание прогресса прохождения квиза
+- 📊 Страница с результатами и статистикой ответов
+- 🎨 Адаптивный дизайн для всех устройств
+- ⚡ Быстрая загрузка и отзывчивый интерфейс
 
-## React Compiler
+## 🛠️ Технологический стек
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **React 19** с React Compiler для автоматической оптимизации
+- **TypeScript** (strict mode) для безопасности типов
+- **Redux Toolkit** + RTK Query для управления состоянием и API запросами
+- **React Router v7** для навигации с lazy loading
+- **Tailwind CSS v4** для стилизации
+- **Vite** (rolldown-vite) для сборки
+- **Bun** в качестве пакетного менеджера и runtime
 
-Note: This will impact Vite dev & build performances.
+## 📋 Требования
 
-## Expanding the ESLint configuration
+- [Bun](https://bun.sh/) >= 1.0.0
+- Node.js >= 18 (для совместимости с некоторыми инструментами)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Быстрый старт
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Клонирование репозитория
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <repository-url>
+cd yeahub-trainer
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Установка зависимостей
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+bun install
 ```
+
+### 3. Настройка окружения
+
+Создайте файл `.env` на основе `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+Отредактируйте `.env` и укажите URL вашего API:
+
+```env
+# Backend API base URL (используется в production)
+# В development /api проксируется через Vite dev server
+VITE_SERVER_URL=https://api.yeahub.ru
+```
+
+> **Примечание**: В режиме разработки все запросы к `/api/*` автоматически проксируются на `VITE_SERVER_URL`. В production используется прямое обращение к `VITE_SERVER_URL`.
+
+### 4. Запуск development сервера
+
+```bash
+bun run dev
+```
+
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
+
+## 📜 Доступные команды
+
+```bash
+# Запуск dev сервера на порту 3000
+bun run dev
+
+# Сборка для production (TypeScript + Vite build)
+bun run build
+
+# Проверка кода (ESLint + Prettier)
+bun run lint
+
+# Предпросмотр production сборки
+bun run preview
+```
+
+## 🏗️ Архитектура
+
+Проект следует принципам [Feature-Sliced Design (FSD)](https://feature-sliced.design/) для обеспечения масштабируемости и поддерживаемости:
+
+```
+src/
+├── app/           # Инициализация приложения, провайдеры, роутинг
+├── pages/         # Страницы приложения
+├── widgets/       # Сложные композитные блоки UI
+├── features/      # Функциональные возможности (quiz-session, quiz-setup)
+├── entities/      # Бизнес-сущности (quiz, skill, specialization)
+└── shared/        # Переиспользуемые компоненты, утилиты, типы
+```
+
+### Ключевые паттерны
+
+#### Управление состоянием
+- **Redux Toolkit** для глобального состояния (вопросы квиза, результаты)
+- **RTK Query** для работы с API с автоматическим кешированием
+- **Typed hooks** (`useAppDispatch`, `useAppSelector`) для безопасности типов
+
+#### API Layer
+- Модульный подход с `injectEndpoints()` для каждой domain области
+- Автоматическая обработка ошибок через `useApiError` hook
+- Retry логика (2 попытки) и timeout (10 секунд)
+
+#### Компоненты
+- Lazy loading для страниц через React Router
+- Skeleton компоненты для loading состояний
+- Переиспользуемые UI компоненты в `shared/ui`
+
+Подробную документацию по архитектуре и соглашениям см. в [CLAUDE.md](./CLAUDE.md)
+
+## 🎨 Стилизация
+
+Проект использует **Tailwind CSS v4** с кастомной темой:
+
+```css
+/* Основные цвета */
+--color-primary: #6a0bff;          /* Основной фиолетовый */
+--color-primary-hover: #5509cc;    /* При наведении */
+--color-background: #f4f4f4;       /* Фон страницы */
+--color-bg-result: #f0e7ff;        /* Фон карточек результатов */
+```
+
+Используйте Tailwind классы: `bg-primary`, `text-primary-hover`, `bg-result` и т.д.
+
+## 🧪 Разработка
+
+### Правила коммитов
+
+1. **Всегда запускайте `bun run lint` перед коммитом**
+2. Никогда не коммитьте `.env` файлы
+3. Используйте осмысленные commit messages
+4. Следуйте соглашениям проекта в [CLAUDE.md](./CLAUDE.md)
+
+### Добавление новых фич
+
+1. Создайте feature в `src/features/feature-name/`
+2. Добавьте типы в соответствующий entity
+3. Создайте API endpoint используя `baseApi.injectEndpoints()`
+4. Добавьте error handling через `useApiError`
+5. Создайте компоненты следуя FSD структуре
+
+### Environment Variables
+
+Переменные окружения должны быть префиксированы `VITE_`:
+
+- `VITE_SERVER_URL` - Backend API URL (обязательно для production)
+
+## 📝 Code Style
+
+- **Отступы**: 4 пробела (tabs)
+- **Кавычки**: Одинарные (`'`)
+- **Точки с запятой**: Обязательны
+- **Импорты**: Автоматически сортируются Prettier
+- **TypeScript**: Strict mode включён
+
+ESLint и Prettier настроены и автоматически исправляют большинство проблем при запуске `bun run lint`.
+
+## 🔧 Production Build
+
+```bash
+# Сборка приложения
+bun run build
+
+# Результат будет в папке dist/
+# Запуск preview сервера
+bun run preview
+```
+
+Убедитесь что:
+- `.env` файл содержит правильный `VITE_SERVER_URL`
+- Backend API настроен для работы с CORS
+- Все environment variables заданы
+
+## 📚 Дополнительная документация
+
+- [CLAUDE.md](./CLAUDE.md) - Руководство по архитектуре и соглашениям
+- [Feature-Sliced Design](https://feature-sliced.design/) - Документация по FSD
+- [React Compiler](https://react.dev/learn/react-compiler) - О React Compiler
+
+## 🤝 Участие в разработке
+
+1. Форкните репозиторий
+2. Создайте feature branch (`git checkout -b feature/amazing-feature`)
+3. Закоммитьте изменения (`git commit -m 'Add amazing feature'`)
+4. Запушьте в branch (`git push origin feature/amazing-feature`)
+5. Откройте Pull Request
+
+**Важно**: Перед созданием PR убедитесь что:
+- ✅ `bun run lint` проходит без ошибок
+- ✅ `bun run build` собирается успешно
+- ✅ Все новые компоненты следуют FSD структуре
+- ✅ Добавлена обработка ошибок для новых API endpoints
+
+## 📄 Лицензия
+
+[Укажите лицензию проекта]
+
+## 👥 Команда
+
+[Информация о команде разработки]
+
+---
+
+Создано с ❤️ с использованием современных web-технологий
