@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-import type { Question } from '@/entities/quiz/model/types';
+import type { Question } from '@/entities/quiz';
 
 interface QuizQuestionProps {
 	question: Question;

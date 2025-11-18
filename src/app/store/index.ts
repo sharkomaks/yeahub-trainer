@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { quizReducer } from '@/entities/quiz/model/quizSlice';
+import { quizReducer } from '@/entities/quiz';
 
-import { baseApi } from '@/shared/api/api';
+import { baseApi } from '@/shared/api';
 
 export const store = configureStore({
 	reducer: {

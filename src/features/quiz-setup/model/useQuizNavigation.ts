@@ -1,11 +1,10 @@
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-import { useLazyGetNewMockQuizQuery } from '@/entities/quiz/api/quizApi';
-import { clearQuizData, setQuizData } from '@/entities/quiz/model/quizSlice';
+import { clearQuizData, setQuizData, useLazyGetNewMockQuizQuery } from '@/entities/quiz';
 
 import { useAppDispatch } from '@/shared/lib/hooks';
-import { ApiErrorType, getErrorMessage } from '@/shared/types/errors';
+import { ApiErrorType, getErrorMessage } from '@/shared/types';
 
 interface UseQuizNavigationParams {
 	specializationId: number;

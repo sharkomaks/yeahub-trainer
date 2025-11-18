@@ -51,9 +51,4 @@ export interface QuizResponse {
 	startDate: string;
 }
 
-/**
- * User answer type for quiz questions
- * 'know' - User knows the answer
- * 'dontKnow' - User doesn't know the answer
- */
 export type UserAnswer = 'know' | 'dontKnow';

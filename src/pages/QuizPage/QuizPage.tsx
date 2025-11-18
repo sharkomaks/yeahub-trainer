@@ -2,7 +2,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 
 import { QuizSetupForm } from '@/widgets/QuizSetupForm';
 
-import { useQuizData, useQuizNavigation, useQuizSetupState, useSkillSelection } from '@/features/quiz-setup/model';
+import { useQuizData, useQuizNavigation, useQuizSetupState, useSkillSelection } from '@/features/quiz-setup';
 
 import { Button } from '@/shared/ui/Button';
 import { Container } from '@/shared/ui/Container';

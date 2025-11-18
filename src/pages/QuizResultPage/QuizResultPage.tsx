@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { QuizResultCard } from '@/features/quiz-session/ui/QuizResultCard';
+import { QuizResultCard } from '@/features/quiz-session';
 
-import { selectQuestions, selectQuizResults } from '@/entities/quiz/model/quizSlice';
+import { selectQuestions, selectQuizResults } from '@/entities/quiz';
 
 import { useAppSelector } from '@/shared/lib/hooks';
 import { Container } from '@/shared/ui/Container';

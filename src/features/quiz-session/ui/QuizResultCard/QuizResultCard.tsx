@@ -1,6 +1,6 @@
 import { FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa';
 
-import type { Question, UserAnswer } from '@/entities/quiz/model/types';
+import type { Question, UserAnswer } from '@/entities/quiz';
 
 interface QuizResultCardProps {
 	question: Question;

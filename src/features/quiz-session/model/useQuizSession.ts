@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { clearQuizData, selectQuestions, setQuizResults } from '@/entities/quiz/model/quizSlice';
-import type { Question } from '@/entities/quiz/model/types';
+import { clearQuizData, selectQuestions, setQuizResults } from '@/entities/quiz';
+import type { Question } from '@/entities/quiz';
 
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks';
 

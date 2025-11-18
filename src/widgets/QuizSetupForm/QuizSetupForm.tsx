@@ -4,7 +4,7 @@ import {
 	QuestionCountSelector,
 	SkillSelector,
 	SpecializationSelector
-} from '@/features/quiz-setup/ui';
+} from '@/features/quiz-setup';
 
 import type { Skill } from '@/entities/skill';
 import type { Specialization } from '@/entities/specialization';
@@ -36,7 +36,6 @@ export function QuizSetupForm({
 }: QuizSetupFormProps) {
 	return (
 		<div className='mb-12 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_400px]'>
-			{/* Left Section */}
 			<div className='flex flex-col gap-8'>
 				<SpecializationSelector
 					selectedId={specializationId}
@@ -53,7 +52,6 @@ export function QuizSetupForm({
 				/>
 			</div>
 
-			{/* Right Section */}
 			<div className='flex flex-col items-start gap-6'>
 				<DifficultySelector />
 				<ModeSelector />
