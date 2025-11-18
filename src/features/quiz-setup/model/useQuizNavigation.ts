@@ -1,10 +1,10 @@
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-import { useGetNewMockQuizQuery } from '@/entities/quiz/api/quizApi';
+import { useLazyGetNewMockQuizQuery } from '@/entities/quiz/api/quizApi';
 import { clearQuizData, setQuizData } from '@/entities/quiz/model/quizSlice';
 
-import { useApiError, useAppDispatch } from '@/shared/lib/hooks';
+import { useAppDispatch } from '@/shared/lib/hooks';
 import { ApiErrorType, getErrorMessage } from '@/shared/types/errors';
 
 interface UseQuizNavigationParams {
@@ -17,33 +17,32 @@ export function useQuizNavigation({ specializationId, skillIds, count }: UseQuiz
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 
+	const [trigger, { isLoading }] = useLazyGetNewMockQuizQuery();
+
 	const isValid = !!specializationId && skillIds.length > 0;
 
-	const { data, isLoading, isError } = useGetNewMockQuizQuery(
-		{
-			specialization: specializationId,
-			skills: skillIds,
-			limit: count
-		},
-		{
-			skip: !isValid
-		}
-	);
+	const handleStart = async () => {
+		if (!isValid) return;
 
-	useApiError(isError, getErrorMessage(ApiErrorType.QUIZ));
+		try {
+			const data = await trigger({
+				specialization: specializationId,
+				skills: skillIds,
+				limit: count
+			}).unwrap();
 
-	const handleStart = () => {
-		if (data) {
 			dispatch(clearQuizData());
 			dispatch(setQuizData(data));
 			toast.success('Успешно! Новое собеседование создано');
 			navigate(`/quiz/new`);
+		} catch {
+			toast.error(getErrorMessage(ApiErrorType.QUIZ));
 		}
 	};
 
 	return {
 		handleStart,
-		isValid: isValid && !!data && !isLoading && !isError,
+		isValid,
 		isLoading
 	};
 }

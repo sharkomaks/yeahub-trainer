@@ -15,4 +15,4 @@ export const quizApi = baseApi.injectEndpoints({
 	overrideExisting: false
 });
 
-export const { useGetNewMockQuizQuery } = quizApi;
+export const { useGetNewMockQuizQuery, useLazyGetNewMockQuizQuery } = quizApi;
