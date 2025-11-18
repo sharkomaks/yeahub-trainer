@@ -13,7 +13,7 @@ export function ModeSelector({ disabled = true, tooltipContent = 'Доступн
 		<div>
 			<h2 className='mb-2 text-sm text-gray-500'>Выберите режим</h2>
 			<Tooltip content={tooltipContent}>
-				<div className='flex gap-2'>
+				<div className='flex flex-wrap gap-2'>
 					{QUIZ_MODES.map(mode => (
 						<SelectableCard key={mode} disabled={disabled}>
 							{mode}

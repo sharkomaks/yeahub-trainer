@@ -35,7 +35,7 @@ export function QuizNewPage() {
 
 	return (
 		<Container className='py-7'>
-			<QuizProgress currentIndex={currentIndex} totalQuestions={totalQuestions} />
+			<QuizProgress currentIndex={currentIndex} totalQuestions={totalQuestions} hasAnswer={hasAnswer} />
 
 			<div className='rounded-2xl bg-white p-4 sm:p-6 md:p-8'>
 				<QuizNavigation

@@ -29,7 +29,6 @@ export function useQuizSession() {
 
 	const currentQuestion: Question = questions[currentIndex];
 	const totalQuestions = questions.length;
-	const progress = ((currentIndex + 1) / totalQuestions) * 100;
 	const hasAnswer = !!userAnswers[currentQuestion.id];
 	const isFirstQuestion = currentIndex === 0;
 	const isLastQuestion = currentIndex === totalQuestions - 1;
@@ -73,7 +72,6 @@ export function useQuizSession() {
 		currentQuestion,
 		currentIndex,
 		totalQuestions,
-		progress,
 		hasAnswer,
 		isFirstQuestion,
 		isLastQuestion,

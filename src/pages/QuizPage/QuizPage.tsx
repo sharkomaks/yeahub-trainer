@@ -17,8 +17,8 @@ function QuizPage() {
 	const { handleStart, isValid } = useQuizNavigation({ specializationId, skillIds, count });
 
 	return (
-		<div className='bg-background min-h-screen py-12'>
-			<Container className='flex flex-col rounded-2xl bg-white p-6'>
+		<Container className='bg-background min-h-screen py-12'>
+			<div className='flex flex-col rounded-2xl bg-white p-6'>
 				<h1 className='mb-6 text-2xl font-medium'>Собеседование</h1>
 
 				<QuizSetupForm
@@ -38,8 +38,8 @@ function QuizPage() {
 					<span>Начать</span>
 					<FaArrowRightLong />
 				</Button>
-			</Container>
-		</div>
+			</div>
+		</Container>
 	);
 }
 
