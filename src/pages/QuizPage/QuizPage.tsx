@@ -1,4 +1,6 @@
+import cn from 'classnames';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import { LuLoaderCircle } from 'react-icons/lu';
 
 import { QuizSetupForm } from '@/widgets/QuizSetupForm';
 
@@ -14,7 +16,7 @@ function QuizPage() {
 
 	const { toggleSkill } = useSkillSelection(skillIds, setSkillIds);
 
-	const { handleStart, isValid } = useQuizNavigation({ specializationId, skillIds, count });
+	const { handleStart, isValid, isLoading } = useQuizNavigation({ specializationId, skillIds, count });
 
 	return (
 		<Container className='bg-background min-h-screen py-12'>
@@ -34,9 +36,15 @@ function QuizPage() {
 					isLoadingSkills={isLoadingSkills}
 				/>
 
-				<Button onClick={handleStart} className='self-end px-8 py-2' disabled={!isValid}>
-					<span>Начать</span>
-					<FaArrowRightLong />
+				<Button onClick={handleStart} className={cn('self-end px-8 py-2')} disabled={!isValid}>
+					{isLoading ? (
+						<LuLoaderCircle className='mx-7 size-6 animate-spin' />
+					) : (
+						<>
+							<span>Начать</span>
+							<FaArrowRightLong />
+						</>
+					)}
 				</Button>
 			</div>
 		</Container>
